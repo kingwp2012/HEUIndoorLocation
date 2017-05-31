@@ -1,0 +1,87 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>images/account.png</file>
+        <file>images/bg.png</file>
+        <file>images/biaoqian.png</file>
+        <file>images/camera.png</file>
+        <file>images/close.png</file>
+        <file>images/email.png</file>
+        <file>images/jizhan.png</file>
+        <file>images/kaoqin.png</file>
+        <file>images/maps.png</file>
+        <file>images/person.png</file>
+        <file>images/personal-center.png</file>
+        <file>images/remind (1).png</file>
+        <file>images/remind.png</file>
+        <file>images/set.png</file>
+        <file>images/subtract.png</file>
+        <file>images/warning.png</file>
+        <file>images/way.png</file>
+        <file>images/xunluo.png</file>
+        <file>images/最大化 (1).png</file>
+        <file>images/最大化 (2).png</file>
+        <file>images/最大化 (3).png</file>
+        <file>images/最大化.png</file>
+        <file>images/arrow_down.png</file>
+        <file>images/close_button.png</file>
+        <file>images/main_menu.png</file>
+        <file>images/max_button.png</file>
+        <file>images/min_button.png</file>
+        <file>images/skin_button.png</file>
+        <file>skin/0.png</file>
+        <file>skin/0_big.png</file>
+        <file>skin/1.png</file>
+        <file>skin/1_big.png</file>
+        <file>skin/2.png</file>
+        <file>skin/2_big.png</file>
+        <file>skin/3.png</file>
+        <file>skin/3_big.png</file>
+        <file>skin/4.png</file>
+        <file>skin/4_big.png</file>
+        <file>skin/5.png</file>
+        <file>skin/5_big.png</file>
+        <file>skin/6.png</file>
+        <file>skin/6_big.png</file>
+        <file>skin/7.png</file>
+        <file>skin/7_big.png</file>
+        <file>skin/8.png</file>
+        <file>skin/8_big.png</file>
+        <file>skin/9.png</file>
+        <file>skin/9_big.png</file>
+        <file>skin/10.png</file>
+        <file>skin/10_big.png</file>
+        <file>skin/11.png</file>
+        <file>skin/11_big.png</file>
+        <file>skin/12.png</file>
+        <file>skin/12_big.png</file>
+        <file>skin/13.png</file>
+        <file>skin/13_big.png</file>
+        <file>skin/14.png</file>
+        <file>skin/14_big.png</file>
+        <file>skin/15.jpg</file>
+        <file>skin/15_big.jpg</file>
+        <file>skin/16.jpg</file>
+        <file>skin/16_big.jpg</file>
+        <file>skin/17.jpg</file>
+        <file>skin/17_big.jpg</file>
+        <file>skin/18.jpg</file>
+        <file>skin/18_big.jpg</file>
+        <file>skin/19.jpg</file>
+        <file>skin/19_big.jpg</file>
+        <file>skin/20.jpg</file>
+        <file>skin/20_big.jpg</file>
+        <file>skin/21.jpg</file>
+        <file>skin/21_big.jpg</file>
+        <file>skin/22.jpg</file>
+        <file>skin/22_big.jpg</file>
+        <file>skin/23.jpg</file>
+        <file>skin/23_big.jpg</file>
+        <file>images/warningSmall.png</file>
+        <file>images/Infowarning.png</file>
+        <file>images/warn.png</file>
+        <file>images/message1.png</file>
+        <file>images/redo.png</file>
+        <file>images/reset.png</file>
+        <file>images/undo.png</file>
+    </qresource>
+</RCC>
