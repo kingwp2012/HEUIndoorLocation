@@ -15,6 +15,7 @@ JzWidget::JzWidget(QWidget *parent) :
     palette.setBrush(QPalette::Window, QBrush(Qt::white));
     setPalette(palette);
     setAutoFillBackground(true);
+    this->baseStationdao = new BaseStationDao();
     setupModel();
     setLayout(ui->verticalLayout);
     ui->verticalLayout->setAlignment(Qt::AlignCenter);//布局内控件居中
@@ -84,40 +85,13 @@ JzWidget::~JzWidget()
 }
 
 
+
 void JzWidget::setupModel(){
 
-    baseModel = new BaseModel(9, 0);
- // baseModel = new BaseModel(9, 8);
-    BaseInfo baseInfo1;
-    baseInfo1.SetbaseID("20140611");
-    baseInfo1.SetbaseRemark("hehe");
-    baseInfo1.SetbaseType("UWB");
-    baseInfo1.SetbaseX("11.3");
-    baseInfo1.SetbaseY("18.4");
-    baseInfo1.SetbaseZ("12.1");
-    baseModel->AddBaseInfo(baseInfo1);
-    //加入三条学生信息
-    /*
-    BaseInfo baseInfo2;
-    baseInfo2.SetbaseID("20140612");
-    baseInfo2.SetbaseRemark("heihei");
-    baseInfo2.SetbaseType("UWB");
-    baseInfo2.SetbaseX("11.3");
-    baseInfo2.SetbaseY("18.4");
-    baseInfo2.SetbaseZ("12.1");
-
-
-    baseModel->AddBaseInfo(baseInfo2);
-
-    BaseInfo baseInfo3;
-    baseInfo3.SetbaseID("20140613");
-    baseInfo3.SetbaseRemark("lala");
-    baseInfo3.SetbaseType("UWB");
-    baseInfo3.SetbaseX("11.3");
-    baseInfo3.SetbaseY("18.4");
-    baseInfo3.SetbaseZ("12.1");
-    baseModel->AddBaseInfo(baseInfo3);
-*/
+    BaseInfo query;
+    QVector<BaseInfo> infos =  this->baseStationdao->getPageList(query);
+    baseModel = new BaseModel(9, 8);
+    baseModel->appendBaseInfos(infos);
 }
 
  void JzWidget::addBaseWin(){
@@ -128,7 +102,10 @@ void JzWidget::setupModel(){
 
 
  void JzWidget::addBaseItem(BaseInfo &info){
-     baseModel->AddBaseInfo(info);
+
+     this->baseStationdao->insert(info);
+     //baseModel->AddBaseInfo(info);
+     freshBaseItem();
  }
 
  void JzWidget::deleteBaseItem(){
@@ -138,20 +115,25 @@ void JzWidget::setupModel(){
      {
          if (baseModel->rowCheckStateMap[i]==Qt::Checked)
          {
+             BaseInfo info = baseModel->getBaseInfo().at(i-j);
+             this->baseStationdao->deleteById(info.GetbaseID().toInt());
              baseModel->removeRow(i-j);
              j++;
          }
      }
-     //重新设置Model的初始状态
      freshBaseItem();
 }
 
+
  void JzWidget::freshBaseItem(){
      for(int i = 0;i < baseModel->rowCount();i++){
-              QModelIndex index = baseModel->index(i,7,QModelIndex());
+              QModelIndex index = baseModel->index(i,8,QModelIndex());
               baseModel->setData(index,Qt::Unchecked,Qt::CheckStateRole);
      }
-   baseModel->freshModel();
+     BaseInfo query;
+     QVector<BaseInfo> infos =  this->baseStationdao->getPageList(query);
+     baseModel->appendBaseInfos(infos);
+     baseModel->freshModel();
  }
 
 

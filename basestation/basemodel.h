@@ -1,7 +1,10 @@
 #ifndef BASEMODEL_H
 #define BASEMODEL_H
 #include<QAbstractTableModel>
+#include<QApplication>
+#include "basestationdao.h"
 
+class BaseStationDao;
 class BaseInfo{
 public:
     BaseInfo() {}
@@ -28,36 +31,55 @@ private:
     QString baseX;
     QString baseY;
     QString baseZ;
+
 };
 
 
 class BaseModel:public QAbstractTableModel
 {
     Q_OBJECT
+
+
+
 public:
+    /*
     BaseModel(const int totalColumn, const int aColumnNumWithChechBox = 0, QObject *parent = 0)
     :totalColumn(totalColumn),colNumberWithCheckBox(aColumnNumWithChechBox),
-    QAbstractTableModel(parent) {rowCheckStateMap.clear();}
+    QAbstractTableModel(parent)
+    {
+        dao = new BaseStationDao(0);
+        rowCheckStateMap.clear();
+
+    }
+    */
+    BaseModel(const int totalColumn, const int aColumnNumWithChechBox = 0, QObject *parent = 0);
+
 public:
+    typedef QVector<BaseInfo> BaseInfos;
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
     bool setData(const QModelIndex &index, const QVariant &value, int role);
+    BaseInfos getBaseInfo(){
+        return this->baseInfos;
+    }
 
 public:
     void AddBaseInfo(const BaseInfo &baseInfo);
+    void appendBaseInfos(const QVector<BaseInfo> &infos);
     void removeRow(int row);
     void freshModel();
     signals:
     void BaseInfoIsChecked(const BaseInfo &baseInfo);
-
 private:
-    typedef QVector<BaseInfo> BaseInfos;
+
     BaseInfos baseInfos;
     int totalColumn;
     int colNumberWithCheckBox;
+    BaseStationDao *dao;
+
 public:
     QMap<int, Qt::CheckState> rowCheckStateMap;
 };
