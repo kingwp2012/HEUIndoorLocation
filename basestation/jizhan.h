@@ -12,7 +12,6 @@
 #include <QHBoxLayout>
 #include <basestation/basemodel.h>
 
-
 class jizhan : public QWidget
 {
     Q_OBJECT
@@ -23,6 +22,7 @@ public:
 public:
     QFormLayout *formlayout;
     QLineEdit *idEdit;
+    QLineEdit *macEdit;
     QLineEdit *cateEdit;
     QLineEdit *xEdit;
     QLineEdit *yEdit;

@@ -10,6 +10,7 @@ jizhan::jizhan(QWidget *parent) :
     //formlayout->setContentsMargins(60,20,100,20);
     formlayout->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
     idEdit=new QLineEdit();
+    macEdit = new QLineEdit();
     cateEdit=new QLineEdit();
     xEdit=new QLineEdit();
     yEdit=new QLineEdit();
@@ -17,6 +18,7 @@ jizhan::jizhan(QWidget *parent) :
     remarkEdit=new QLineEdit();
 
     idEdit->setPlaceholderText(QStringLiteral("请输入基站ID"));
+    macEdit->setPlaceholderText(QStringLiteral("请输入Mac地址"));
     cateEdit->setPlaceholderText(QStringLiteral("请输入建站类型"));
     xEdit->setPlaceholderText(QStringLiteral("基站x轴坐标"));
     yEdit->setPlaceholderText(QStringLiteral("基站y轴坐标"));
@@ -24,6 +26,7 @@ jizhan::jizhan(QWidget *parent) :
     remarkEdit->setPlaceholderText(QStringLiteral("备注"));
 
     formlayout->addRow(QStringLiteral("&基站ID："),idEdit);
+    formlayout->addRow(QStringLiteral("&基站Mac地址："),macEdit);
     formlayout->addRow(QStringLiteral("&基站类型："),cateEdit);
     formlayout->addRow(QStringLiteral("&基站X坐标："),xEdit);
     formlayout->addRow(QStringLiteral("&基站Y坐标："),yEdit);
@@ -49,6 +52,7 @@ jizhan::jizhan(QWidget *parent) :
   void jizhan::combine(){
       BaseInfo newbaseInfo;
       newbaseInfo.SetbaseID(this->idEdit->text());
+      newbaseInfo.SetbaseMac(this->macEdit->text());
       newbaseInfo.SetbaseRemark(this->remarkEdit->text());
       newbaseInfo.SetbaseType(this->cateEdit->text());
       newbaseInfo.SetbaseX(this->xEdit->text());
@@ -56,7 +60,9 @@ jizhan::jizhan(QWidget *parent) :
       newbaseInfo.SetbaseZ(this->zEdit->text());
       emit newBaseItem(newbaseInfo);
       this->close();
+
   }
+
 
 jizhan::~jizhan()
 {

@@ -6,6 +6,8 @@
 #include"basemodel.h"
 #include<QTableView>
 #include "jizhan.h"
+#include "basestationdao.h"
+
 
 namespace Ui {
 class JzWidget;
@@ -31,13 +33,14 @@ private:
     QPushButton *deleteBase;
     QPushButton *freshBase;
     BaseModel   *baseModel;
-  //QTableView  *baseTable;
+    QTableView  *baseTable;
     QPushButton *nextPage;
     QPushButton *prePage;
     QPushButton *firstPage;
     QPushButton *lastPage;
     jizhan      *addWin;
+    BaseStationDao *baseStationdao;
+
 };
 
 #endif // JZWIDGET_H
-
