@@ -16,3 +16,4 @@ int Line::get_typeid()
 {
     return 2;
 }
+

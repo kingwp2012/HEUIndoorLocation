@@ -16,12 +16,12 @@ MapDraw::MapDraw(QWidget *parent) :
     int width=this->width();
     int height= this->height();
 
-    scene=new QGraphicsScene;
-    view =new QGraphicsView;
-  //  view->setMinimumSize(1100,700);
-    view->setScene(scene);
-    scene->setSceneRect(-width/2, -height/2, width, height);
-    view->show();
+//    scene=new QGraphicsScene;
+//    view =new QGraphicsView;
+//  //  view->setMinimumSize(1100,700);
+//    view->setScene(scene);
+//    scene->setSceneRect(-width/2, -height/2, width, height);
+//    view->show();
 
    // QToolBar *shapeBar = this->addToolBar("Shape");
 
@@ -137,11 +137,11 @@ MapDraw::MapDraw(QWidget *parent) :
 
    // operatorBar->setAllowedAreas(Qt::LeftToolBarArea);
     paint=new PaintArea;
-    setCentralWidget(view);
+    setCentralWidget(paint);
 //    view->setMaximumSize(1100,600);
 //    view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    scene->addWidget(paint);
+   // scene->addWidget(paint);
 //    paint->setMaximumSize(1100,900);
 //    paint->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
    // setCentralWidget(paint);

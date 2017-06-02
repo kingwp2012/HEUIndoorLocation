@@ -35,6 +35,7 @@ public:
     QVector<BaseInfo> getPageList(BaseInfo info,int page = 1,int pageSize = 10);
     bool deleteById(int id);
     bool update(BaseInfo info);
+
 signals:
 
 public slots:

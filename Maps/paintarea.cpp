@@ -44,7 +44,7 @@ PaintArea::PaintArea(QWidget *parent) :
       foreach(Shape *shape, stack)
       {
           shape->paint(paint);
-      }     
+      }
   }
 
   void PaintArea::mousePressEvent(QMouseEvent *e)

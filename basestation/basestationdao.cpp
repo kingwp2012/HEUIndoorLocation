@@ -15,10 +15,9 @@ BaseStationDao::BaseStationDao() : QObject()
         if(qry->exec(create_sql)){
             qDebug() << QString::fromLocal8Bit("create BaseStationTable success");
         }else{
-             qDebug() << QString::fromLocal8Bit("create BaseStationTable fail");
+            qDebug() << QString::fromLocal8Bit("create BaseStationTable fail");
         }
     }
-
 
 }
 

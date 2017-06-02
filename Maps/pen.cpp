@@ -16,3 +16,4 @@ int Pen::get_typeid()
 {
     return 3;
 }
+

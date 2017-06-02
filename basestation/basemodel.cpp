@@ -11,8 +11,6 @@ QAbstractTableModel(parent)
 
 }
 
-
-
 int BaseModel::rowCount( const QModelIndex &parent ) const
 {
     if (parent.isValid()){

@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include"basemodel.h"
 #include<QTableView>
-#include "jizhan.h"
+#include "basestationform.h"
 #include "basestationdao.h"
 
 
@@ -37,10 +37,9 @@ private:
     QPushButton *nextPage;
     QPushButton *prePage;
     QPushButton *firstPage;
-    QPushButton *lastPage;
-    jizhan      *addWin;
+    QPushButton *lastPage;   
     BaseStationDao *baseStationdao;
-
+    BaseStationForm *addWin;
 };
 
 #endif // JZWIDGET_H

@@ -13,4 +13,3 @@ virtual int get_typeid() override;
 
 
 #endif // CIRCLE_H
-

@@ -4,7 +4,8 @@
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QDebug>
-#include "jizhan.h"
+#include "basestationform.h"
+
 JzWidget::JzWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::JzWidget)
@@ -26,7 +27,7 @@ JzWidget::JzWidget(QWidget *parent) :
     ui->widget->setMaximumSize(1200,650);
     ui->widget->setLayout(ui->verticalLayout_3);
     ui->verticalLayout_3->setAlignment(Qt::AlignCenter);
-    ui->widget_2->setMaximumSize(1100,40);
+    ui->widget_2->setMaximumSize(1200,40);
     QHBoxLayout *hl1=new QHBoxLayout();
     ui->widget_2->setLayout(hl1);
     freshBase=new QPushButton();
@@ -42,29 +43,46 @@ JzWidget::JzWidget(QWidget *parent) :
     ui->widget_2->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
    // //////////////////tableview
-    ui->tableView->setMaximumSize(1100,500);
+  //  ui->tableView->setMaximumSize(1200,500);
     ui->tableView->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     ui->tableView->setModel(baseModel);
     ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:skyblue;"
                                                            "color: black;padding-left: 4px;border: 1px solid #6c6c6c;}");
     ui->tableView->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView->setColumnWidth(0,100);
+    ui->tableView->setColumnWidth(1,100);
+    ui->tableView->setColumnWidth(2,100);
+    ui->tableView->setColumnWidth(3,100);
+    ui->tableView->setColumnWidth(4,100);
+    ui->tableView->setColumnWidth(5,100);
+    ui->tableView->setColumnWidth(6,100);
+    ui->tableView->setColumnWidth(7,100);
+    ui->tableView->setColumnWidth(8,394);
   //  /////////////////////////////
     ui->widget_3->setMaximumSize(1100,40);
     QHBoxLayout *hl2=new QHBoxLayout();
     ui->widget_3->setLayout(hl2);
     firstPage =new QPushButton();
-    firstPage->setText(QStringLiteral("第一页"));
+    //firstPage->setText(QStringLiteral("第一页"));
+    firstPage->setToolTip(QStringLiteral("第一页"));
+    firstPage->setObjectName("firstPage");
     nextPage=new QPushButton();
-    nextPage->setText(QStringLiteral("下一页"));
+    //nextPage->setText(QStringLiteral("下一页"));
+    nextPage->setToolTip(QStringLiteral("下一页"));
+    nextPage->setObjectName("nextPage");
     prePage=new QPushButton();
-    prePage->setText(QStringLiteral("前一页"));
+    //prePage->setText(QStringLiteral("上一页"));
+    prePage->setToolTip(QStringLiteral("上一页"));
+    prePage->setObjectName("prePage");
     lastPage=new QPushButton();
-    lastPage->setText(QStringLiteral("最后一页"));
+    //lastPage->setText(QStringLiteral("最后一页"));
+    lastPage->setToolTip(QStringLiteral("最后一页"));
+    lastPage->setObjectName("lastPage");
     hl2->setAlignment(Qt::AlignHCenter);
     hl2->addWidget(firstPage);
-    hl2->addWidget(nextPage);
     hl2->addWidget(prePage);
+    hl2->addWidget(nextPage);
     hl2->addWidget(lastPage);
     ui->widget_3->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
@@ -76,6 +94,9 @@ JzWidget::JzWidget(QWidget *parent) :
     connect(this->deleteBase,SIGNAL(clicked()),this,SLOT(deleteBaseItem()));
     connect(this->freshBase,SIGNAL(clicked()),this,SLOT(freshBaseItem()));
 
+    ui->tab->setObjectName("tab");
+    ui->tab_2->setObjectName("tab_2");
+    ui->tabWidget->setObjectName("tabWidget");
 
 }
 
@@ -94,19 +115,19 @@ void JzWidget::setupModel(){
     baseModel->appendBaseInfos(infos);
 }
 
- void JzWidget::addBaseWin(){
-     addWin = new jizhan();
-     addWin ->show();
-     connect(addWin,SIGNAL(newBaseItem(BaseInfo&)),this,SLOT(addBaseItem(BaseInfo&)));
- }
+void JzWidget::addBaseWin(){
+    addWin = new BaseStationForm();
+    addWin ->show();
+    connect(addWin,SIGNAL(newBaseItem(BaseInfo&)),this,SLOT(addBaseItem(BaseInfo&)));
+}
 
 
- void JzWidget::addBaseItem(BaseInfo &info){
+void JzWidget::addBaseItem(BaseInfo &info){
 
-     this->baseStationdao->insert(info);
-     //baseModel->AddBaseInfo(info);
-     freshBaseItem();
- }
+    this->baseStationdao->insert(info);
+    //baseModel->AddBaseInfo(info);
+    freshBaseItem();
+}
 
  void JzWidget::deleteBaseItem(){
      int count = baseModel->rowCount();

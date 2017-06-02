@@ -34,7 +34,6 @@ SOURCES += main.cpp\
     warningwidget.cpp \
     basestation/basestationdao.cpp \
     basestation/basemodel.cpp \
-    basestation/jizhan.cpp \
     basestation/jzwidget.cpp \
     attence/kqwidget.cpp \
     camera/bqwidget.cpp \
@@ -47,7 +46,10 @@ SOURCES += main.cpp\
     Maps/line.cpp \
     Maps/rect.cpp \
     Maps/pen.cpp \
-    Maps/mapdraw.cpp
+    Maps/mapdraw.cpp \
+    basestation/basestationform.cpp \
+    style.cpp \
+    basestation/formtitle.cpp
 
 HEADERS  += mainwindow.h \
     titlewidget.h \
@@ -59,7 +61,6 @@ HEADERS  += mainwindow.h \
     warningwidget.h \
     basestation/basestationdao.h \
     basestation/basemodel.h \
-    basestation/jizhan.h \
     basestation/jzwidget.h \
     attence/kqwidget.h \
     camera/bqwidget.h \
@@ -73,7 +74,10 @@ HEADERS  += mainwindow.h \
     Maps/line.h \
     Maps/rect.h \
     Maps/pen.h \
-    Maps/mapdraw.h
+    Maps/mapdraw.h \
+    basestation/basestationform.h \
+    style.h \
+    basestation/formtitle.h
 
 FORMS    += mainwindow.ui \
     titlewidget.ui \
@@ -88,7 +92,8 @@ FORMS    += mainwindow.ui \
     camera/bqwidget.ui \
     label/truebqwidget.ui \
     Maps/mapwidget.ui \
-    Maps/mapdraw.ui
+    Maps/mapdraw.ui \
+    basestation/basestationform.ui
 
 RESOURCES += \
     image.qrc
